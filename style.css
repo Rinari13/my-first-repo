@@ -1,4 +1,4 @@
-/* Этап 1. Базовые стили и сброс стандартных отступов */
+/* Базовые стили и сброс стандартных отступов */
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +20,7 @@ body {
   line-height: 1.6;
 }
 
-/* Этап 2. Flexbox для навигации в шапке */
+/* Шапка сайта на десктопе */
 header {
   display: flex;
   justify-content: space-between;
@@ -30,6 +30,7 @@ header {
   backdrop-filter: blur(10px);
   border-bottom: 2px solid var(--color-accent);
   box-shadow: 0 4px 20px rgba(255, 0, 127, 0.2);
+  position: relative;
 }
 
 header h1 {
@@ -60,14 +61,12 @@ nav a:hover {
   text-shadow: 0 0 10px var(--color-accent);
 }
 
-/* Этап 4. Подсветка активного пункта меню */
 nav a.active {
   text-decoration: underline;
   color: var(--color-accent);
   text-shadow: 0 0 10px var(--color-accent);
 }
 
-/* Этап 3. Flexbox для карточек проектов */
 main {
   max-width: 1000px;
   margin: 2rem auto;
@@ -92,15 +91,14 @@ section h2 {
   margin-bottom: 20px;
 }
 
-/* Сетка Flexbox для карточек (Пункт 6) */
+/* Сетка проектов, переведённая на CSS Grid (Пункт 1) */
 .projects-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
 .projects-grid article {
-  flex: 1 1 280px;
   background: linear-gradient(135deg, rgba(255, 0, 127, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%);
   padding: 1.5rem;
   border-radius: 12px;
@@ -151,4 +149,40 @@ footer {
   color: #706580;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   margin-top: 2rem;
+}
+
+/* Кнопка-бургер */
+.burger {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Медиа-запрос для адаптации под мобильные устройства (Пункт 5) */
+@media (max-width: 768px) {
+  .burger {
+    display: block; /* Показываем иконку меню */
+  }
+  
+  nav {
+    display: none; /* Прячем горизонтальные ссылки */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Открываем строго под шапкой */
+    left: 0;
+    background: #110722;
+    width: 100%;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    border-bottom: 2px solid var(--color-accent);
+    z-index: 100;
+  }
+  
+  /* Класс, который добавляется через JS */
+  nav.open {
+    display: flex;
+  }
 }
