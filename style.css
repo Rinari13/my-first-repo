@@ -5,12 +5,11 @@
   box-sizing: border-box;
 }
 
-/* Определение кастомных неоновых переменных в :root */
 :root {
   --color-primary: rgba(26, 11, 46, 0.7);
-  --color-accent: #ff007f;   /* Розовый неон */
-  --color-cyan: #00ffff;     /* Бирюзовый неон */
-  --color-bg-dark: #0b0616;  /* Глубокий темный */
+  --color-accent: #ff007f;
+  --color-cyan: #00ffff;
+  --color-bg-dark: #0b0616;
 }
 
 body {
@@ -20,7 +19,6 @@ body {
   line-height: 1.6;
 }
 
-/* Шапка сайта на десктопе */
 header {
   display: flex;
   justify-content: space-between;
@@ -47,13 +45,14 @@ nav {
   gap: 1.5rem;
 }
 
+/* ПР №5. Этап 1. Плавный переход для цвета ссылок */
 nav a {
   color: var(--color-cyan);
   text-decoration: none;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -91,7 +90,6 @@ section h2 {
   margin-bottom: 20px;
 }
 
-/* Сетка проектов, переведённая на CSS Grid (Пункт 1) */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -103,6 +101,22 @@ section h2 {
   padding: 1.5rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 0, 127, 0.2);
+  
+  /* ПР №5. Этап 1 и 2. Плавность наведения и подготовка к анимации появления */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; 
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ПР №5. Этап 1. Эффект приподнимания карточки */
+.projects-grid article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+}
+
+/* ПР №5. Задержка анимации для второй карточки */
+.projects-grid article:nth-child(2) {
+  animation-delay: 0.2s;
 }
 
 .projects-grid article h3 {
@@ -111,7 +125,34 @@ section h2 {
   margin-bottom: 10px;
 }
 
-/* Стили для формы обратной связи */
+/* ПР №5. Этап 2. Правило @keyframes для анимации всплывания */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ПР №5. Этап 3. Скрытое и плавное раскрытое состояние текстового блока */
+.extra-info {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.extra-info p {
+  padding-top: 1rem;
+  color: #d8b4fe;
+}
+
+.extra-info.expanded {
+  max-height: 200px; /* Высота раскрытого блока */
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -133,6 +174,7 @@ input, textarea {
   border-radius: 8px;
 }
 
+/* ПР №5. Плавность для кнопок */
 button {
   background: linear-gradient(90deg, var(--color-accent) 0%, #7928ca 100%);
   color: #fff;
@@ -141,6 +183,15 @@ button {
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
+  transition: filter 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  filter: brightness(1.2);
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 footer {
@@ -151,7 +202,6 @@ footer {
   margin-top: 2rem;
 }
 
-/* Кнопка-бургер */
 .burger {
   display: none;
   font-size: 1.8rem;
@@ -161,17 +211,13 @@ footer {
   cursor: pointer;
 }
 
-/* Медиа-запрос для адаптации под мобильные устройства (Пункт 5) */
 @media (max-width: 768px) {
-  .burger {
-    display: block; /* Показываем иконку меню */
-  }
-  
+  .burger { display: block; }
   nav {
-    display: none; /* Прячем горизонтальные ссылки */
+    display: none;
     flex-direction: column;
     position: absolute;
-    top: 100%; /* Открываем строго под шапкой */
+    top: 100%;
     left: 0;
     background: #110722;
     width: 100%;
@@ -180,9 +226,5 @@ footer {
     border-bottom: 2px solid var(--color-accent);
     z-index: 100;
   }
-  
-  /* Класс, который добавляется через JS */
-  nav.open {
-    display: flex;
-  }
+  nav.open { display: flex; }
 }
