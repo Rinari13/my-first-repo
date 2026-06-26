@@ -10,7 +10,6 @@
 
   <header>
     <h1>RINARI DESIGN</h1>
-    <!-- ПР №6. Кнопка переключения темы -->
     <button id="theme-toggle" aria-label="Переключить тему">🌙</button>
     <button class="burger" id="burger-btn" aria-label="Открыть меню">☰</button>
     <nav>
@@ -33,21 +32,23 @@
 
     <section id="projects">
       <h2>Мои последние релизы</h2>
-      <div class="projects-grid">
-        <article>
-          <h3>Дроп «Cyber-Grunge»</h3>
-          <p>Авторская серия худи и джинсов оверсайз с элементами ручного окрашивания (Tie-Dye), грубыми внешними швами и металлической фурнитурой.</p>
-        </article>
-        <article>
-          <h3>Проект «Деконструкция»</h3>
-          <p>Кастомная линейка пиджаков и тренчей, перешитых мной из винтажных материалов с добавлением футуристичных принтов и ремней.</p>
-        </article>
+      
+      <!-- ПР №7. Панель фильтрации по категориям и текстовый поиск -->
+      <div class="filters-panel">
+        <div class="filters">
+          <button data-filter="all" class="active">Все</button>
+          <button data-filter="apparel">Одежда</button>
+          <button data-filter="accessories">Аксессуары</button>
+        </div>
+        <input type="text" id="search-input" placeholder="Поиск по названию...">
       </div>
+
+      <!-- Пустой контейнер, который заполнит JavaScript -->
+      <div class="projects-grid" id="projects-grid"></div>
     </section>
 
     <section id="contact">
       <h2>Разработка вещи под ваш запрос</h2>
-      <!-- ПР №6. Добавлен ID и теги ошибок для полей формы -->
       <form id="contact-form">
         <label for="name">Ваше имя</label>
         <input type="text" id="name" name="name">

@@ -12,7 +12,6 @@
   --color-bg-dark: #0b0616;
 }
 
-/* ПР №6. Базовое состояние теперь тёмное по вашему выбору */
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: radial-gradient(circle at 50% 50%, #1e102f 0%, var(--color-bg-dark) 100%);
@@ -21,56 +20,25 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* ПР №6. Пункт 2: Стили для Альтернативной (Светлой) темы */
 body.light-theme {
   background: #f4f4f9;
   color: #222222;
 }
-body.light-theme header {
-  background: #2e5395;
-  border-bottom: 2px solid #f2a154;
-}
-body.light-theme header h1 {
-  text-shadow: none;
-}
-body.light-theme nav a {
-  color: #ffffff;
-}
-body.light-theme nav a:hover, body.light-theme nav a.active {
-  color: #f2a154;
-}
-body.light-theme section {
-  background: #ffffff;
-  border: 1px solid #dddddd;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-body.light-theme section h2 {
-  color: #2e5395;
-  border-bottom: 1px dashed #2e5395;
-}
-body.light-theme .projects-grid article {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-}
-body.light-theme .projects-grid article h3 {
-  color: #222222;
-}
-body.light-theme label {
-  color: #2e5395;
-}
-body.light-theme input, body.light-theme textarea {
-  background: #ffffff;
-  border: 1px solid #cccccc;
-  color: #222222;
-}
-body.light-theme button {
-  background: #2e5395;
-}
-body.light-theme button:hover {
-  background: #1e3d73;
-}
+body.light-theme header { background: #2e5395; border-bottom: 2px solid #f2a154; }
+body.light-theme header h1 { text-shadow: none; }
+body.light-theme nav a { color: #ffffff; }
+body.light-theme nav a:hover, body.light-theme nav a.active { color: #f2a154; }
+body.light-theme section { background: #ffffff; border: 1px solid #dddddd; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+body.light-theme section h2 { color: #2e5395; border-bottom: 1px dashed #2e5395; }
+body.light-theme .projects-grid article { background: #ffffff; border: 1px solid #e0e0e0; }
+body.light-theme .projects-grid article h3 { color: #222222; }
+body.light-theme label { color: #2e5395; }
+body.light-theme input, body.light-theme textarea { background: #ffffff; border: 1px solid #cccccc; color: #222222; }
+body.light-theme button { background: #2e5395; }
+body.light-theme button:hover { background: #1e3d73; }
+body.light-theme .filters button { border: 1px solid #2e5395; color: #2e5395; background: transparent; }
+body.light-theme .filters button.active, body.light-theme .filters button:hover { background: #2e5395; color: #fff; }
 
-/* Шапка сайта */
 header {
   display: flex;
   justify-content: space-between;
@@ -92,7 +60,6 @@ header h1 {
   text-shadow: 0 0 10px var(--color-accent);
 }
 
-/* ПР №6. Кнопка смены темы */
 #theme-toggle {
   background: none;
   border: none;
@@ -101,15 +68,9 @@ header h1 {
   padding: 0.5rem;
   transition: transform 0.2s;
 }
-#theme-toggle:hover {
-  transform: scale(1.15);
-}
+#theme-toggle:hover { transform: scale(1.15); }
 
-nav {
-  display: flex;
-  gap: 1.5rem;
-}
-
+nav { display: flex; gap: 1.5rem; }
 nav a {
   color: var(--color-cyan);
   text-decoration: none;
@@ -118,23 +79,10 @@ nav a {
   letter-spacing: 1px;
   transition: color 0.3s ease;
 }
+nav a:hover { color: var(--color-accent); text-shadow: 0 0 10px var(--color-accent); }
+nav a.active { text-decoration: underline; color: var(--color-accent); text-shadow: 0 0 10px var(--color-accent); }
 
-nav a:hover {
-  color: var(--color-accent);
-  text-shadow: 0 0 10px var(--color-accent);
-}
-
-nav a.active {
-  text-decoration: underline;
-  color: var(--color-accent);
-  text-shadow: 0 0 10px var(--color-accent);
-}
-
-main {
-  max-width: 1000px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
+main { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
 
 section {
   margin-bottom: 3rem;
@@ -155,6 +103,7 @@ section h2 {
   margin-bottom: 20px;
 }
 
+/* Сетка проектов CSS Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -168,7 +117,7 @@ section h2 {
   border: 1px solid rgba(255, 0, 127, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   opacity: 0; 
-  animation: fadeInUp 0.6s ease forwards;
+  animation: fadeInUp 0.5s ease forwards;
 }
 
 .projects-grid article:hover {
@@ -176,67 +125,69 @@ section h2 {
   box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
 }
 
-.projects-grid article:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.projects-grid article h3 {
-  margin-top: 0;
-  color: #fff;
-  margin-bottom: 10px;
-}
+.projects-grid article h3 { margin-top: 0; color: #fff; margin-bottom: 10px; }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.extra-info {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-in-out;
-}
-
-.extra-info p {
-  padding-top: 1rem;
-  color: #d8b4fe;
-}
-
-.extra-info.expanded {
-  max-height: 200px;
-}
-
-form {
+/* ПР №7. Стили для панели фильтрации и поиска */
+.filters-panel {
+  margin-bottom: 2rem;
   display: flex;
-  flex-direction: column;
-  max-width: 500px;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
-label {
-  margin-bottom: 8px;
-  color: #d8b4fe;
+.filters { display: flex; gap: 0.5rem; }
+
+.filters button {
+  padding: 0.6rem 1.2rem;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--color-cyan);
+  border: 1px solid var(--color-cyan);
+  border-radius: 6px;
+  cursor: pointer;
   font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
 }
 
+.filters button:hover, .filters button.active {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+#search-input {
+  max-width: 300px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.extra-info { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-in-out; }
+.extra-info p { padding-top: 1rem; color: #d8b4fe; }
+.extra-info.expanded { max-height: 200px; }
+
+form { display: flex; flex-direction: column; max-width: 500px; }
+label { margin-bottom: 8px; color: #d8b4fe; font-weight: 600; }
 input, textarea {
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
   padding: 14px;
-  margin-bottom: 5px; /* Уменьшили под вывод ошибок */
+  margin-bottom: 5px;
   border-radius: 8px;
   font-family: inherit;
 }
 
-/* ПР №6. Пункт 7: Оформление текста ошибки под инпутами */
-.error {
-  display: block;
-  color: #ff3333;
-  font-size: 0.85rem;
-  min-height: 1.5em;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
+.error { display: block; color: #ff3333; font-size: 0.85rem; min-height: 1.5em; margin-bottom: 15px; font-weight: bold; }
 
 button {
   background: linear-gradient(90deg, var(--color-accent) 0%, #7928ca 100%);
@@ -246,43 +197,19 @@ button {
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  transition: filter 0.2s ease, transform 0.1s ease, background 0.3s ease;
+  transition: filter 0.2s ease, transform 0.1s ease;
 }
-
 button:hover { filter: brightness(1.2); }
 button:active { transform: scale(0.98); }
 
-footer {
-  text-align: center;
-  padding: 2rem;
-  color: #706580;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  margin-top: 2rem;
-}
-
-.burger {
-  display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
+footer { text-align: center; padding: 2rem; color: #706580; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 2rem; }
+.burger { display: none; font-size: 1.8rem; background: none; border: none; color: white; cursor: pointer; }
 
 @media (max-width: 768px) {
   .burger { display: block; }
   nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #110722;
-    width: 100%;
-    padding: 1.5rem;
-    gap: 1.5rem;
-    border-bottom: 2px solid var(--color-accent);
-    z-index: 100;
+    display: none; flex-direction: column; position: absolute; top: 100%; left: 0;
+    background: #110722; width: 100%; padding: 1.5rem; gap: 1.5rem; border-bottom: 2px solid var(--color-accent); z-index: 100;
   }
   nav.open { display: flex; }
 }
