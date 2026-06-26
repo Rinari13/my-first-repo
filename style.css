@@ -1,0 +1,168 @@
+/* Общие настройки страницы */
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at 50% 50%, #1e102f 0%, #0b0616 100%);
+  color: #f5f0fa;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Шапка и навигация */
+header {
+  background: rgba(26, 11, 46, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 30px 20px;
+  text-align: center;
+  border-bottom: 2px solid #ff007f;
+  box-shadow: 0 4px 20px rgba(255, 0, 127, 0.2);
+}
+
+header h1 {
+  margin: 0 0 15px 0;
+  color: #fff;
+  letter-spacing: 4px;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
+}
+
+nav a {
+  color: #00ffff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+nav a:hover {
+  color: #ff007f;
+  text-shadow: 0 0 10px #ff007f;
+}
+
+/* Основной контент */
+main {
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 60px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+  color: #00ffff;
+  font-size: 1.8rem;
+  margin-top: 0;
+  border-bottom: 1px dashed rgba(0, 255, 255, 0.3);
+  padding-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* Карточки релизов (article) */
+article {
+  background: linear-gradient(135deg, rgba(255, 0, 127, 0.1) 0%, rgba(0, 255, 255, 0.05) 100%);
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 0, 127, 0.2);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+article:hover {
+  transform: translateY(-3px);
+  border-color: #00ffff;
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+
+article h3 {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+/* Форма обратной связи */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  color: #d8b4fe;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input, textarea {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 14px;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #ff007f;
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+  outline: none;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Кнопка */
+button {
+  background: linear-gradient(90deg, #ff007f 0%, #7928ca 100%);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 0, 127, 0.3);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 6px 20px rgba(255, 0, 127, 0.5);
+  transform: scale(1.01);
+}
+
+/* Подвал сайта */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: #706580;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#update-date {
+  color: #ff007f;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 0, 127, 0.5);
+}
