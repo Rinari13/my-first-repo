@@ -10,6 +10,8 @@
 
   <header>
     <h1>RINARI DESIGN</h1>
+    <!-- ПР №6. Кнопка переключения темы -->
+    <button id="theme-toggle" aria-label="Переключить тему">🌙</button>
     <button class="burger" id="burger-btn" aria-label="Открыть меню">☰</button>
     <nav>
       <a href="#about">Манифест</a>
@@ -23,7 +25,6 @@
       <h2>Обо мне и концепте</h2>
       <p>Привет, я Карина. Я создаю лимитированные дропы кастомной одежды на стыке уличной моды, деконструктивизма и экологичности. Моя цель — давать вторую жизнь винтажным вещам, превращая их в уникальные носимые арт-объекты вручную.</p>
       
-      <!-- ПР №5. Дополнительный скрытый блок текста и кнопка -->
       <div class="extra-info" id="extra-info">
         <p>Каждая вещь в лаборатории RE:FORM проходит несколько этапов: ручной подбор денима и винтажного трикотажа, деконструкция старого кроя, обработка грубыми внешними швами и окрашивание в технике Tie-Dye. Это манифест против быстрой моды.</p>
       </div>
@@ -46,12 +47,15 @@
 
     <section id="contact">
       <h2>Разработка вещи под ваш запрос</h2>
-      <form>
+      <!-- ПР №6. Добавлен ID и теги ошибок для полей формы -->
+      <form id="contact-form">
         <label for="name">Ваше имя</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name">
+        <span class="error" id="name-error"></span>
         
         <label for="email">Электронная почта</label>
-        <input type="email" id="email" name="email" required>
+        <input type="text" id="email" name="email">
+        <span class="error" id="email-error"></span>
         
         <label for="message">Какую вещь хотите переделать или какую идею воплотить?</label>
         <textarea id="message" name="message" placeholder="Напишите ваши пожелания, размер и стиль..."></textarea>

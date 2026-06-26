@@ -12,13 +12,65 @@
   --color-bg-dark: #0b0616;
 }
 
+/* ПР №6. Базовое состояние теперь тёмное по вашему выбору */
 body {
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background: radial-gradient(circle at 50% 50%, #1e102f 0%, var(--color-bg-dark) 100%);
   color: #f5f0fa;
   line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* ПР №6. Пункт 2: Стили для Альтернативной (Светлой) темы */
+body.light-theme {
+  background: #f4f4f9;
+  color: #222222;
+}
+body.light-theme header {
+  background: #2e5395;
+  border-bottom: 2px solid #f2a154;
+}
+body.light-theme header h1 {
+  text-shadow: none;
+}
+body.light-theme nav a {
+  color: #ffffff;
+}
+body.light-theme nav a:hover, body.light-theme nav a.active {
+  color: #f2a154;
+}
+body.light-theme section {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+body.light-theme section h2 {
+  color: #2e5395;
+  border-bottom: 1px dashed #2e5395;
+}
+body.light-theme .projects-grid article {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+body.light-theme .projects-grid article h3 {
+  color: #222222;
+}
+body.light-theme label {
+  color: #2e5395;
+}
+body.light-theme input, body.light-theme textarea {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  color: #222222;
+}
+body.light-theme button {
+  background: #2e5395;
+}
+body.light-theme button:hover {
+  background: #1e3d73;
+}
+
+/* Шапка сайта */
 header {
   display: flex;
   justify-content: space-between;
@@ -40,12 +92,24 @@ header h1 {
   text-shadow: 0 0 10px var(--color-accent);
 }
 
+/* ПР №6. Кнопка смены темы */
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.2s;
+}
+#theme-toggle:hover {
+  transform: scale(1.15);
+}
+
 nav {
   display: flex;
   gap: 1.5rem;
 }
 
-/* ПР №5. Этап 1. Плавный переход для цвета ссылок */
 nav a {
   color: var(--color-cyan);
   text-decoration: none;
@@ -79,6 +143,7 @@ section {
   padding: 40px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease, border 0.3s ease;
 }
 
 section h2 {
@@ -101,20 +166,16 @@ section h2 {
   padding: 1.5rem;
   border-radius: 12px;
   border: 1px solid rgba(255, 0, 127, 0.2);
-  
-  /* ПР №5. Этап 1 и 2. Плавность наведения и подготовка к анимации появления */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   opacity: 0; 
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* ПР №5. Этап 1. Эффект приподнимания карточки */
 .projects-grid article:hover {
   transform: translateY(-6px);
   box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
 }
 
-/* ПР №5. Задержка анимации для второй карточки */
 .projects-grid article:nth-child(2) {
   animation-delay: 0.2s;
 }
@@ -125,19 +186,11 @@ section h2 {
   margin-bottom: 10px;
 }
 
-/* ПР №5. Этап 2. Правило @keyframes для анимации всплывания */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ПР №5. Этап 3. Скрытое и плавное раскрытое состояние текстового блока */
 .extra-info {
   max-height: 0;
   overflow: hidden;
@@ -150,7 +203,7 @@ section h2 {
 }
 
 .extra-info.expanded {
-  max-height: 200px; /* Высота раскрытого блока */
+  max-height: 200px;
 }
 
 form {
@@ -170,11 +223,21 @@ input, textarea {
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
   padding: 14px;
-  margin-bottom: 25px;
+  margin-bottom: 5px; /* Уменьшили под вывод ошибок */
   border-radius: 8px;
+  font-family: inherit;
 }
 
-/* ПР №5. Плавность для кнопок */
+/* ПР №6. Пункт 7: Оформление текста ошибки под инпутами */
+.error {
+  display: block;
+  color: #ff3333;
+  font-size: 0.85rem;
+  min-height: 1.5em;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
 button {
   background: linear-gradient(90deg, var(--color-accent) 0%, #7928ca 100%);
   color: #fff;
@@ -183,16 +246,11 @@ button {
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  transition: filter 0.2s ease, transform 0.1s ease;
+  transition: filter 0.2s ease, transform 0.1s ease, background 0.3s ease;
 }
 
-button:hover {
-  filter: brightness(1.2);
-}
-
-button:active {
-  transform: scale(0.98);
-}
+button:hover { filter: brightness(1.2); }
+button:active { transform: scale(0.98); }
 
 footer {
   text-align: center;
